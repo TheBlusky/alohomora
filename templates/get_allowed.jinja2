@@ -1,0 +1,68 @@
+<html>
+<head>
+    <link rel="stylesheet" href="static/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/bootstrap-theme.min.css"/>
+    <script src="static/bootstrap.min.js"></script>
+    <style>
+        @media (min-width: 768px) {
+            .container {
+                max-width: 730px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Alohomora</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="padding-top: 50px">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Allowed list</h2>
+            <a href="/allow.conf">Display list</a> / <a href="/allow.conf?dl=1">Download list</a><br /><br />
+            <ul>
+                {% for allowed in allowed_list %}
+                    <li>
+                        {% if allowed.desc %}
+                            {{ allowed.desc }} -
+                        {% endif %}
+
+                        {{ allowed.ip }}
+
+                        {% if allowed.expiration == 0 %}
+                            (Permanent)
+                        {% else %}
+                            ({{ allowed.expiration - cur_time }})
+                        {% endif %}
+                        <a href="/del/{{ allowed.id }}">X</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h2>Add an IP</h2>
+            <form action="/add" method="POST">
+                IP:<br/>
+                <input type="text" name="ip" value="{{ ip }}"/><br/>
+                Description:<br/>
+                <input type="text" name="desc"/><br/>
+                Expiration:<br/>
+                <select name="expiration">
+                    <option value="0" selected>Forever</option>
+                    <option value="60">1 minute</option>
+                    <option value="3600">1 hour</option>
+                    <option value="86400">1 day</option>
+                    <option value="604800">1 week</option>
+                </select><br/>
+                <input type="submit" value="Add"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  alohomora:
+    image: blusky/alohomora
+    network_mode: "bridge"
+    volumes:
+      - "/docker/alohomora:/alohomora/data"
+    environment:
+      - "VIRTUAL_HOST=alohomora.domain.tld"
+      - "VIRTUAL_PORT=8080"
+      - "LETSENCRYPT_HOST=alohomora.domain.tld"
+      - "LETSENCRYPT_EMAIL=encrypt@domain.tld"
+      - "ALOHOMORA_TOKEN=my_awesome_token"
+

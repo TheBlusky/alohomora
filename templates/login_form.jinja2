@@ -1,0 +1,29 @@
+<html>
+<head>
+    <link rel="stylesheet" href="static/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/bootstrap-theme.min.css" />
+    <script src="static/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Alohomora</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="padding-top: 50px">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Authentication</h2>
+            <form action="/login-check" method="POST">
+                Token:<br />
+                <input type="password" name="token" />
+                <input type="submit" value="Connection" />
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
