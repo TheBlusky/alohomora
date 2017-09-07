@@ -1,29 +1,22 @@
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="static/bootstrap.min.css" />
-    <link rel="stylesheet" href="static/bootstrap-theme.min.css" />
-    <script src="static/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="static/bootstrap-custom.css">
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Alohomora</a>
-        </div>
-    </div>
-</nav>
 
-<div class="container" style="padding-top: 50px">
-    <div class="row">
-        <div class="col-md-8">
-            <h2>Authentication</h2>
-            <form action="/login-check" method="POST">
-                Token:<br />
-                <input type="password" name="token" />
-                <input type="submit" value="Connection" />
-            </form>
-        </div>
+<div class="container">
+    <div class="header clearfix">
+        <h3 class="text-muted">Alohomora</h3>
     </div>
+    <form class="form-signin" action="/login-check" method="POST">
+        <h2 class="form-signin-heading">Authentication</h2>
+        <label for="token" class="sr-only">Token</label>
+        <input type="password" name="token" class="form-control" placeholder="Token" required="required" autofocus="autofocus">
+        <button class="btn btn-lg btn-default btn-block" type="submit">Connection</button>
+    </form>
 </div>
+
 </body>
 </html>
