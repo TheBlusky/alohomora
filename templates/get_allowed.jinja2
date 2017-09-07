@@ -30,37 +30,6 @@
                             <th>Expiration</th>
                             <th>&nbsp;</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                    {% for allowed in allowed_list %}
-                        <tr>
-                            <td class="ip">{{ allowed.ip }}</td>
-                            <td><span class="text-muted">
-                                {% if allowed.desc %}
-                                    {{ allowed.desc }}
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if allowed.expiration == 0 %}
-                                    <span class="label label-default">Permanent</span>
-                                {% else %}
-                                    <span class="label label-info">{{ allowed.expiration - cur_time }}</span>
-                                {% endif %}
-                            </td>
-                            <td class="text-right"><a href="/del/{{ allowed.id }}" class="btn btn-danger btn-xs">&times;</a></td>
-                        </li>
-                    {% endfor %}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th colspan="4">Add an IP</th>
-                        </tr>
-                        <tr>
-                            <th>IP address</th>
-                            <th>Description</th>
-                            <th>Expiration</th>
-                            <th>&nbsp;</th>
-                        </tr>
                         <tr>
                             <td>
                                 <div class="form-group">
@@ -89,7 +58,27 @@
                                 </div>
                             </td>
                         </tr>
-                    </tfoot>
+                    </thead>
+                    <tbody>
+                    {% for allowed in allowed_list %}
+                        <tr>
+                            <td class="ip">{{ allowed.ip }}</td>
+                            <td><span class="text-muted">
+                                {% if allowed.desc %}
+                                    {{ allowed.desc }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if allowed.expiration == 0 %}
+                                    <span class="label label-default">Permanent</span>
+                                {% else %}
+                                    <span class="label label-info">{{ allowed.expiration - cur_time }}</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-right"><a href="/del/{{ allowed.id }}" class="btn btn-danger btn-xs">&times;</a></td>
+                        </li>
+                    {% endfor %}
+                    </tbody>
                 </table>
             </form>
         </div>
