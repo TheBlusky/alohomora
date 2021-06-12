@@ -1,3 +1,5 @@
-aiohttp
-aiohttp_session
-aiohttp_jinja2
+aiohttp==3.7.4.post0
+aiohttp-session==2.9.0
+aiohttp-jinja2==1.4.2
+PyYAML==5.4.1
+humanize==3.7.1
