@@ -60,6 +60,7 @@ async def get_allowed(request):
         ip = request.transport.get_extra_info("peername")[0]
     now = int(time.time())
     data = {
+        "already_allowed": ip in allowed_list.keys(),
         "allowed_list": [
             {
                 "ip": ip,

@@ -11,6 +11,30 @@
         <h3 class="text-muted">Alohomora</h3>
     </div>
     <div class="row">
+        <div class="col-md-6">
+            <form role="form" action="/add" method="POST">
+                <input type="hidden" name="ip" value="{{ ip }}" />
+                <input type="hidden" name="desc" value="Temporary add" />
+                <input type="hidden" name="expiration" value="3600" />
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="4">Quick temporary add</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ ip }}
+                                {% if already_allowed == False %}
+                                    <button type="submit" class="btn btn-warning btn-sm">Add for 1 hour</button>
+                                {% else %}
+                                    (Already allowed)
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </form>
+        </div>
         <div class="col-md-12">
             <form role="form" action="/add" method="POST">
                 <table class="table table-condensed table-hover">
